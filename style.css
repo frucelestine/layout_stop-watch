@@ -1,25 +1,18 @@
 body {
-  display: grid;
+  display: flex;
   justify-content: center;
+  margin: 0;
 }
 
 @keyframes stop-clock-long {
-  from {
-    transform: translate(0, 0);
-  }
-
-  to {
-    transform: rotate(-110deg);
+  100% {
+    transform: rotate(360deg);
   }
 }
 
 @keyframes stop-clock-short {
-  from {
-    transform: translate(0, 0);
-  }
-
-  to {
-    transform: rotate(45deg);
+  100% {
+    transform: rotate(360deg);
   }
 }
 
@@ -35,9 +28,9 @@ body {
 
 .long-hand {
   background-color: blue;
-  height: 300px;
+  height: 200px;
   width: 15px;
-  animation: stop-clock-long 4s infinite;
+  animation: stop-clock-long 60s infinite steps(60);
   transform-origin: 40% 100%;
   border-radius: 10px;
   margin-bottom: -15px;
@@ -45,11 +38,27 @@ body {
 
 .short-hand {
   background-color: red;
-  margin-top: -215px;
-  height: 200px;
+  margin-top: -171px;
+  height: 150px;
   width: 15px;
   border-radius: 10px;
-  animation: stop-clock-short 4s infinite;
+  animation: stop-clock-short 3600s infinite steps(60);
   transform-origin: 0 100%;
   z-index: 0;
+}
+
+.main {
+  height: 560px;
+  width: 560px;
+  background-color: aqua;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  line-height: 560px;
+  position: relative;
+}
+
+.content {
+  position: absolute;
+  top: 75px;
 }
